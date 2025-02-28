@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoBot - Trading Automatizado con IA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js y plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-gradient"></script>
+    <!-- Iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Estilos modernos -->
+    <link rel="stylesheet" href="assets/css/modern.css" />
+    <!-- AOS para animaciones de scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body class="gradient-bg min-h-screen">
+    <!-- Barra de navegación -->
+    <nav class="modern-nav">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-robot text-2xl text-indigo-600"></i>
+          <span class="text-xl font-bold gradient-text">CryptoBot</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#features" class="modern-nav-link">Características</a>
+          <a href="#how-it-works" class="modern-nav-link">Cómo Funciona</a>
+          <a href="#pricing" class="modern-nav-link">Precios</a>
+          <a href="#testimonials" class="modern-nav-link">Testimonios</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button id="loginBtn" class="modern-button">Iniciar Sesión</button>
+          <button class="md:hidden text-2xl">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+      <!-- Hero Section -->
+      <section class="container mx-auto px-4 py-20 text-center">
+        <h1 class="text-5xl font-bold mb-6 gradient-text" data-aos="fade-up">
+          Trading Automatizado con Inteligencia Artificial
+        </h1>
+        <p
+          class="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Optimiza tus estrategias de trading de criptomonedas con análisis
+          técnico avanzado y machine learning. Obtén resultados consistentes con
+          nuestro bot inteligente.
+        </p>
+        <div
+          class="flex justify-center gap-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <button class="modern-button hover-scale">Comenzar Ahora</button>
+          <button class="modern-button bg-white hover-scale">Ver Demo</button>
+        </div>
+        <div class="mt-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="dashboard-preview">
+            <div class="preview-header">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h2 class="text-2xl font-bold">
+                    Análisis de Precio BTC/USDT
+                  </h2>
+                  <p class="text-gray-600">
+                    Última actualización:
+                    <span class="text-indigo-600">12:45:30</span>
+                  </p>
+                </div>
+                <div class="timeframe-selector flex gap-2">
+                  <button
+                    class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200"
+                  >
+                    1H
+                  </button>
+                  <button class="px-4 py-2 rounded-lg bg-indigo-600 text-white">
+                    1D
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200"
+                  >
+                    1W
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200"
+                  >
+                    1M
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="price-stats grid grid-cols-4 gap-4 mb-6">
+              <div class="stat-card bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-3xl font-bold text-gray-900">$43,256.78</h3>
+                  <span
+                    class="px-2 py-1 rounded-lg bg-green-100 text-green-600 text-sm font-medium"
+                    >+2.34%</span
+                  >
+                </div>
+                <p class="text-gray-600 mt-1">Precio Actual</p>
+              </div>
+              <div class="stat-card bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold text-gray-900">$43,850.00</h3>
+                  <i class="fas fa-arrow-up text-green-500"></i>
+                </div>
+                <p class="text-gray-600 mt-1">Máximo 24h</p>
+                <p class="text-sm text-green-600">+1.37% del precio actual</p>
+              </div>
+              <div class="stat-card bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold text-gray-900">$42,150.00</h3>
+                  <i class="fas fa-arrow-down text-red-500"></i>
+                </div>
+                <p class="text-gray-600 mt-1">Mínimo 24h</p>
+                <p class="text-sm text-red-600">-2.56% del precio actual</p>
+              </div>
+              <div class="stat-card bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold text-gray-900">$28.5B</h3>
+                  <span
+                    class="px-2 py-1 rounded-lg bg-blue-100 text-blue-600 text-sm font-medium"
+                    >+15.2%</span
+                  >
+                </div>
+                <p class="text-gray-600 mt-1">Volumen 24h</p>
+                <p class="text-sm text-blue-600">478.5K transacciones</p>
+              </div>
+            </div>
+
+            <div class="chart-container bg-white p-6 rounded-xl shadow-sm mb-6">
+              <canvas id="priceChart" style="height: 350px"></canvas>
+            </div>
+
+            <div class="trading-signals grid grid-cols-3 gap-4">
+              <div class="signal-card bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-bold text-gray-900">Soporte</h4>
+                  <span class="text-green-600">Fuerte</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xl font-bold">$42,800.00</span>
+                  <span class="text-sm text-gray-600">Probabilidad: 85%</span>
+                </div>
+                <div class="mt-2 text-sm text-gray-600">
+                  <i class="fas fa-info-circle mr-1"></i>
+                  3 rebotes confirmados
+                </div>
+              </div>
+              <div class="signal-card bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-bold text-gray-900">Resistencia</h4>
+                  <span class="text-red-600">Moderada</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xl font-bold">$43,500.00</span>
+                  <span class="text-sm text-gray-600">Probabilidad: 75%</span>
+                </div>
+                <div class="mt-2 text-sm text-gray-600">
+                  <i class="fas fa-info-circle mr-1"></i>
+                  2 rechazos recientes
+                </div>
+              </div>
+              <div class="actions bg-white rounded-xl p-4 shadow-sm">
+                <div class="grid grid-cols-2 gap-4">
+                  <button
+                    class="action-button buy bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition flex items-center justify-center"
+                  >
+                    <i class="fas fa-arrow-up mr-2"></i>
+                    Comprar
+                  </button>
+                  <button
+                    class="action-button sell bg-red-600 text-white py-3 px-6 rounded-lg hover:bg-red-700 transition flex items-center justify-center"
+                  >
+                    <i class="fas fa-arrow-down mr-2"></i>
+                    Vender
+                  </button>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-2">
+                  Señal IA:
+                  <span class="text-green-600 font-medium"
+                    >Compra Sugerida</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estadísticas con iconos más modernos -->
+      <section class="bg-white py-20">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="stat-card" data-aos="fade-up">
+              <div
+                class="flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 mb-4"
+              >
+                <i class="fas fa-users text-3xl text-indigo-600"></i>
+              </div>
+              <div class="stat-number text-3xl font-bold text-gray-900">
+                10,000+
+              </div>
+              <p class="text-gray-600 mt-2">Traders Activos</p>
+              <p class="text-indigo-600 text-sm mt-2">+25% este mes</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+              <div
+                class="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4"
+              >
+                <i class="fas fa-chart-line text-3xl text-green-600"></i>
+              </div>
+              <div class="stat-number text-3xl font-bold text-gray-900">
+                $500M+
+              </div>
+              <p class="text-gray-600 mt-2">Volumen Operado</p>
+              <p class="text-green-600 text-sm mt-2">
+                +42% vs último trimestre
+              </p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+              <div
+                class="flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 mb-4"
+              >
+                <i class="fas fa-robot text-3xl text-purple-600"></i>
+              </div>
+              <div class="stat-number text-3xl font-bold text-gray-900">
+                50+
+              </div>
+              <p class="text-gray-600 mt-2">Estrategias IA</p>
+              <p class="text-purple-600 text-sm mt-2">98% precisión promedio</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+              <div
+                class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4"
+              >
+                <i class="fas fa-exchange-alt text-3xl text-blue-600"></i>
+              </div>
+              <div class="stat-number text-3xl font-bold text-gray-900">
+                15+
+              </div>
+              <p class="text-gray-600 mt-2">Exchanges Integrados</p>
+              <p class="text-blue-600 text-sm mt-2">Conexión instantánea</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Características con más detalles -->
+      <section id="features" class="py-20">
+        <div class="container mx-auto px-4">
+          <h2
+            class="text-4xl font-bold text-center mb-12 gradient-text"
+            data-aos="fade-up"
+          >
+            Características Principales
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="modern-card" data-aos="fade-up">
+              <div
+                class="flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 mb-6"
+              >
+                <i class="fas fa-brain text-3xl text-indigo-600"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4">Inteligencia Artificial</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Análisis predictivo avanzado
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Aprendizaje continuo
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Adaptación al mercado
+                </li>
+              </ul>
+            </div>
+            <div class="modern-card" data-aos="fade-up" data-aos-delay="100">
+              <div
+                class="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6"
+              >
+                <i class="fas fa-chart-bar text-3xl text-green-600"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4">Análisis Técnico</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  +50 indicadores técnicos
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Análisis en tiempo real
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Señales personalizadas
+                </li>
+              </ul>
+            </div>
+            <div class="modern-card" data-aos="fade-up" data-aos-delay="200">
+              <div
+                class="flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-6"
+              >
+                <i class="fas fa-shield-alt text-3xl text-red-600"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4">Gestión de Riesgo</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Stop Loss automático
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Diversificación inteligente
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Control de exposición
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cómo Funciona -->
+      <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <h2
+            class="text-4xl font-bold text-center mb-12 gradient-text"
+            data-aos="fade-up"
+          >
+            Cómo Funciona
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8" data-aos="fade-right">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold"
+                >
+                  1
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Conecta tu Exchange</h3>
+                  <p class="text-gray-600">
+                    Integra tu cuenta de exchange favorito de forma segura
+                    usando API keys.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold"
+                >
+                  2
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">
+                    Configura tu Estrategia
+                  </h3>
+                  <p class="text-gray-600">
+                    Selecciona entre múltiples estrategias predefinidas o crea
+                    la tuya propia.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold"
+                >
+                  3
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Activa el Bot</h3>
+                  <p class="text-gray-600">
+                    Deja que nuestro bot opere por ti 24/7 siguiendo tu
+                    estrategia.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative" data-aos="fade-left">
+              <img
+                src="assets/images/bot-interface.png"
+                alt="Interface del Bot"
+                class="rounded-xl shadow-2xl hover-glow"
+              />
+              <div
+                class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg"
+              >
+                <div class="text-2xl font-bold text-indigo-600">24/7</div>
+                <div class="text-gray-600">Operación Continua</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Precios -->
+      <section id="pricing" class="py-20">
+        <div class="container mx-auto px-4">
+          <h2
+            class="text-4xl font-bold text-center mb-12 gradient-text"
+            data-aos="fade-up"
+          >
+            Planes y Precios
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="modern-card" data-aos="fade-up">
+              <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Básico</h3>
+                <div class="text-4xl font-bold mb-4">
+                  <span class="text-indigo-600">$29</span>
+                  <span class="text-gray-400 text-base">/mes</span>
+                </div>
+              </div>
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  1 Exchange
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  5 Estrategias
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Soporte Email
+                </li>
+              </ul>
+              <button class="modern-button w-full">Comenzar</button>
+            </div>
+            <div
+              class="modern-card transform scale-105 z-10"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="absolute top-0 right-0 bg-indigo-600 text-white px-4 py-1 rounded-tr-xl rounded-bl-xl"
+              >
+                Popular
+              </div>
+              <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Pro</h3>
+                <div class="text-4xl font-bold mb-4">
+                  <span class="text-indigo-600">$79</span>
+                  <span class="text-gray-400 text-base">/mes</span>
+                </div>
+              </div>
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  3 Exchanges
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  15 Estrategias
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Soporte 24/7
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Señales Premium
+                </li>
+              </ul>
+              <button class="modern-button w-full">Comenzar</button>
+            </div>
+            <div class="modern-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                <div class="text-4xl font-bold mb-4">
+                  <span class="text-indigo-600">$199</span>
+                  <span class="text-gray-400 text-base">/mes</span>
+                </div>
+              </div>
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Exchanges Ilimitados
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Estrategias Ilimitadas
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  API Personalizada
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  Gestor de Cuenta
+                </li>
+              </ul>
+              <button class="modern-button w-full">Contactar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonios -->
+      <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <h2
+            class="text-4xl font-bold text-center mb-12 gradient-text"
+            data-aos="fade-up"
+          >
+            Lo que Dicen Nuestros Usuarios
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="modern-card" data-aos="fade-up">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4"
+                >
+                  <svg
+                    class="w-8 h-8 text-indigo-600"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold">Carlos Rodríguez</h4>
+                  <p class="text-gray-600">Trader Profesional</p>
+                </div>
+              </div>
+              <p class="text-gray-600">
+                "CryptoBot ha revolucionado mi forma de operar. Los resultados
+                son consistentes y el soporte es excelente."
+              </p>
+            </div>
+            <div class="modern-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4"
+                >
+                  <svg
+                    class="w-8 h-8 text-purple-600"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold">Ana Martínez</h4>
+                  <p class="text-gray-600">Inversora</p>
+                </div>
+              </div>
+              <p class="text-gray-600">
+                "La facilidad de uso y la potencia de las estrategias de IA me
+                han permitido obtener resultados que no esperaba."
+              </p>
+            </div>
+            <div class="modern-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4"
+                >
+                  <svg
+                    class="w-8 h-8 text-green-600"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold">Miguel Sánchez</h4>
+                  <p class="text-gray-600">Desarrollador</p>
+                </div>
+              </div>
+              <p class="text-gray-600">
+                "La API es robusta y bien documentada. He podido integrar
+                CryptoBot en mis propios sistemas sin problemas."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Final -->
+      <section class="py-20">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold mb-8 gradient-text" data-aos="fade-up">
+            ¿Listo para Comenzar?
+          </h2>
+          <p
+            class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Únete a miles de traders que ya están optimizando sus operaciones
+            con CryptoBot.
+          </p>
+          <button
+            class="modern-button hover-scale"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Crear Cuenta Gratis
+          </button>
+        </div>
+      </section>
+
+      <!-- Modales existentes... -->
+      <div
+        id="loginModal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+      >
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Iniciar Sesión</h2>
+            <button
+              id="closeLoginBtn"
+              class="text-gray-500 hover:text-gray-700"
+            >
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+          <form id="loginForm" class="space-y-4">
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-2"
+                >Correo Electrónico</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="ejemplo@correo.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="password" class="block text-gray-700 font-medium mb-2"
+                >Contraseña</label
+              >
+              <input
+                type="password"
+                id="password"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+            <div class="flex items-center justify-between">
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  class="form-checkbox h-4 w-4 text-indigo-600"
+                />
+                <span class="ml-2 text-sm text-gray-600">Recordarme</span>
+              </label>
+              <a href="#" class="text-sm text-indigo-600 hover:text-indigo-800"
+                >¿Olvidaste tu contraseña?</a
+              >
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition"
+            >
+              Iniciar Sesión
+            </button>
+          </form>
+          <div class="mt-6 text-center">
+            <p class="text-gray-600">
+              ¿No tienes una cuenta?
+              <button
+                id="showRegisterBtn"
+                class="text-indigo-600 font-medium hover:text-indigo-800"
+              >
+                Regístrate
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="registerModal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+      >
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Crear Cuenta</h2>
+            <button
+              id="closeRegisterBtn"
+              class="text-gray-500 hover:text-gray-700"
+            >
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+          <form id="registerForm" class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  name="firstName"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+              <div>
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Apellido</label
+                >
+                <input
+                  type="text"
+                  name="lastName"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Correo Electrónico</label
+              >
+              <input
+                type="email"
+                name="email"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Teléfono</label
+              >
+              <input
+                type="tel"
+                name="phone"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Contraseña</label
+              >
+              <input
+                type="password"
+                name="password"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Confirmar Contraseña</label
+              >
+              <input
+                type="password"
+                name="confirmPassword"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 font-medium mb-2"
+                >Tipo de Cuenta</label
+              >
+              <select
+                name="accountType"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+              >
+                <option value="personal">Personal</option>
+                <option value="professional">Profesional</option>
+                <option value="enterprise">Empresa</option>
+              </select>
+            </div>
+            <div class="flex items-start">
+              <input
+                type="checkbox"
+                name="terms"
+                class="form-checkbox h-4 w-4 text-indigo-600 mt-1"
+                required
+              />
+              <label class="ml-2 text-sm text-gray-600">
+                Acepto los
+                <a href="#" class="text-indigo-600 hover:text-indigo-800"
+                  >Términos y Condiciones</a
+                >
+                y la
+                <a href="#" class="text-indigo-600 hover:text-indigo-800"
+                  >Política de Privacidad</a
+                >
+              </label>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition"
+            >
+              Crear Cuenta
+            </button>
+          </form>
+          <div class="mt-6 text-center">
+            <p class="text-gray-600">
+              ¿Ya tienes una cuenta?
+              <button
+                id="showLoginBtn"
+                class="text-indigo-600 font-medium hover:text-indigo-800"
+              >
+                Inicia Sesión
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">CryptoBot</h3>
+            <p class="text-gray-400">
+              Una plataforma avanzada de trading automatizado con inteligencia
+              artificial para optimizar tus inversiones en criptomonedas.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Características</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Precios</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Documentación</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contacto</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-2 text-indigo-400"></i>
+                <a
+                  href="mailto:info@cryptobot.com"
+                  class="text-gray-400 hover:text-white transition"
+                  >info@cryptobot.com</a
+                >
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-2 text-indigo-400"></i>
+                <span class="text-gray-400">+1 (555) 123-4567</span>
+              </li>
+            </ul>
+            <div class="mt-4 flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                ><i class="fab fa-twitter text-xl"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                ><i class="fab fa-facebook text-xl"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                ><i class="fab fa-github text-xl"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white transition"
+                ><i class="fab fa-linkedin text-xl"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400"
+        >
+          <p>&copy; 2023 CryptoBot. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+      // Inicializar AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+    <script>
+      // Gráfico de precio mejorado
+      const priceCtx = document.getElementById("priceChart").getContext("2d");
+      const priceGradient = priceCtx.createLinearGradient(0, 0, 0, 350);
+      priceGradient.addColorStop(0, "rgba(79, 70, 229, 0.2)");
+      priceGradient.addColorStop(1, "rgba(79, 70, 229, 0)");
+
+      new Chart(priceCtx, {
+        type: "line",
+        data: {
+          labels: Array.from({ length: 24 }, (_, i) => `${i}:00`),
+          datasets: [
+            {
+              label: "Precio BTC/USDT",
+              data: [
+                42200, 42400, 42100, 42800, 43200, 42900, 43500, 43200, 43100,
+                42900, 43000, 43200, 43400, 43300, 43100, 43000, 42800, 42900,
+                43100, 43300, 43200, 43000, 43200, 43256.78,
+              ],
+              borderColor: "#4f46e5",
+              backgroundColor: priceGradient,
+              tension: 0.4,
+              fill: true,
+              pointRadius: 4,
+              pointBackgroundColor: "#fff",
+              pointBorderColor: "#4f46e5",
+              pointBorderWidth: 2,
+              pointHoverRadius: 6,
+              borderWidth: 3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {
+            intersect: false,
+            mode: "index",
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              titleColor: "#1f2937",
+              bodyColor: "#4f46e5",
+              borderColor: "#e5e7eb",
+              borderWidth: 1,
+              padding: 12,
+              displayColors: false,
+              callbacks: {
+                label: function (context) {
+                  return `$${context.parsed.y.toFixed(2)}`;
+                },
+              },
+            },
+            annotation: {
+              annotations: {
+                support: {
+                  type: "line",
+                  yMin: 42800,
+                  yMax: 42800,
+                  borderColor: "#10b981",
+                  borderWidth: 2,
+                  borderDash: [5, 5],
+                  label: {
+                    content: "Soporte",
+                    enabled: true,
+                    position: "left",
+                  },
+                },
+                resistance: {
+                  type: "line",
+                  yMin: 43500,
+                  yMax: 43500,
+                  borderColor: "#ef4444",
+                  borderWidth: 2,
+                  borderDash: [5, 5],
+                  label: {
+                    content: "Resistencia",
+                    enabled: true,
+                    position: "left",
+                  },
+                },
+              },
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: {
+                display: true,
+                drawBorder: false,
+                color: "rgba(226, 232, 240, 0.6)",
+              },
+              ticks: {
+                callback: function (value) {
+                  return "$" + value.toLocaleString();
+                },
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+              ticks: {
+                maxRotation: 0,
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

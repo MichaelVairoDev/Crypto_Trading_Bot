@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics - CryptoBot</title>
+    <link rel="stylesheet" href="assets/css/dashboard-common.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-logo">
+          <i
+            class="bx bx-bot"
+            style="font-size: 2rem; color: var(--primary)"
+          ></i>
+          <h2>CryptoBot</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <i class="bx bxs-dashboard"></i>
+            Dashboard
+          </a>
+          <a href="trading.html" class="nav-item">
+            <i class="bx bx-line-chart"></i>
+            Trading
+          </a>
+          <a href="analytics.html" class="nav-item active">
+            <i class="bx bx-bar-chart-alt-2"></i>
+            Analytics
+          </a>
+          <a href="settings.html" class="nav-item">
+            <i class="bx bx-cog"></i>
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Contenido Principal -->
+      <main class="dashboard-main">
+        <header class="dashboard-header">
+          <h1 class="page-title">Analytics</h1>
+          <div>
+            <button class="dashboard-button">
+              <i class="bx bx-download"></i>
+              Exportar Reporte
+            </button>
+          </div>
+        </header>
+
+        <!-- Grid de Estadísticas -->
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>ROI Total</h3>
+            <p
+              style="font-size: 2rem; font-weight: bold; color: var(--success)"
+            >
+              +32.5%
+            </p>
+            <p style="color: var(--success)">+5.2% vs mes anterior</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Operaciones Totales</h3>
+            <p style="font-size: 2rem; font-weight: bold">248</p>
+            <p style="color: var(--text-light)">Últimos 30 días</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Win Rate Global</h3>
+            <p
+              style="font-size: 2rem; font-weight: bold; color: var(--primary)"
+            >
+              72%
+            </p>
+            <p style="color: var(--text-light)">178/248 operaciones exitosas</p>
+          </div>
+        </div>
+
+        <!-- Gráficos de Análisis -->
+        <div class="dashboard-grid" style="grid-template-columns: 2fr 1fr">
+          <!-- Gráfico de Rendimiento por Par -->
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2 class="chart-title">Rendimiento por Par</h2>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>Último mes</option>
+                <option>Últimos 3 meses</option>
+                <option>Último año</option>
+              </select>
+            </div>
+            <canvas id="pairPerformanceChart"></canvas>
+          </div>
+
+          <!-- Gráfico de Distribución -->
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2 class="chart-title">Distribución de Operaciones</h2>
+            </div>
+            <canvas id="distributionChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Tabla de Rendimiento -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <h2 class="chart-title">Rendimiento por Estrategia</h2>
+          </div>
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Estrategia</th>
+                <th>Operaciones</th>
+                <th>Win Rate</th>
+                <th>Beneficio Promedio</th>
+                <th>Pérdida Promedio</th>
+                <th>ROI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Trend Following</td>
+                <td>124</td>
+                <td>75%</td>
+                <td style="color: var(--success)">+2.8%</td>
+                <td style="color: var(--error)">-1.2%</td>
+                <td style="color: var(--success)">+18.5%</td>
+              </tr>
+              <tr>
+                <td>Mean Reversion</td>
+                <td>86</td>
+                <td>68%</td>
+                <td style="color: var(--success)">+2.1%</td>
+                <td style="color: var(--error)">-1.5%</td>
+                <td style="color: var(--success)">+12.3%</td>
+              </tr>
+              <tr>
+                <td>Breakout</td>
+                <td>38</td>
+                <td>71%</td>
+                <td style="color: var(--success)">+3.2%</td>
+                <td style="color: var(--error)">-1.8%</td>
+                <td style="color: var(--success)">+8.7%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Configuración del gráfico de rendimiento por par
+      const pairCtx = document
+        .getElementById("pairPerformanceChart")
+        .getContext("2d");
+      new Chart(pairCtx, {
+        type: "bar",
+        data: {
+          labels: ["BTC/USDT", "ETH/USDT", "SOL/USDT", "ADA/USDT", "DOT/USDT"],
+          datasets: [
+            {
+              label: "ROI %",
+              data: [15.2, 12.8, 18.5, 8.9, 11.2],
+              backgroundColor: "#4f46e5",
+              borderRadius: 8,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                display: true,
+                drawBorder: false,
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
+      });
+
+      // Configuración del gráfico de distribución
+      const distCtx = document
+        .getElementById("distributionChart")
+        .getContext("2d");
+      new Chart(distCtx, {
+        type: "doughnut",
+        data: {
+          labels: [
+            "Long Exitosos",
+            "Short Exitosos",
+            "Long Fallidos",
+            "Short Fallidos",
+          ],
+          datasets: [
+            {
+              data: [45, 27, 18, 10],
+              backgroundColor: ["#10b981", "#6366f1", "#ef4444", "#f59e0b"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

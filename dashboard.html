@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - CryptoBot</title>
+    <link rel="stylesheet" href="assets/css/dashboard-common.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-logo">
+          <i
+            class="bx bx-bot"
+            style="font-size: 2rem; color: var(--primary)"
+          ></i>
+          <h2>CryptoBot</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item active">
+            <i class="bx bxs-dashboard"></i>
+            Dashboard
+          </a>
+          <a href="trading.html" class="nav-item">
+            <i class="bx bx-line-chart"></i>
+            Trading
+          </a>
+          <a href="analytics.html" class="nav-item">
+            <i class="bx bx-bar-chart-alt-2"></i>
+            Analytics
+          </a>
+          <a href="settings.html" class="nav-item">
+            <i class="bx bx-cog"></i>
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Contenido Principal -->
+      <main class="dashboard-main">
+        <header class="dashboard-header">
+          <h1 class="page-title">Dashboard</h1>
+          <button class="dashboard-button">
+            <i class="bx bx-plus"></i>
+            Nueva Estrategia
+          </button>
+        </header>
+
+        <!-- Grid de Estadísticas -->
+        <div class="dashboard-grid stats">
+          <div class="dashboard-card">
+            <h3>Balance Total</h3>
+            <p
+              style="font-size: 2rem; font-weight: bold; color: var(--success)"
+            >
+              $25,438.32
+            </p>
+            <p style="color: var(--success)">+12.5% este mes</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Operaciones Activas</h3>
+            <p style="font-size: 2rem; font-weight: bold">8</p>
+            <p style="color: var(--text-light)">3 en beneficio</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>ROI Promedio</h3>
+            <p
+              style="font-size: 2rem; font-weight: bold; color: var(--primary)"
+            >
+              18.7%
+            </p>
+            <p style="color: var(--text-light)">Últimos 30 días</p>
+          </div>
+        </div>
+
+        <!-- Grid de Criptomonedas -->
+        <div class="dashboard-grid crypto">
+          <div class="dashboard-card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-orange-600"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z"
+                      fill="#F7931A"
+                    />
+                    <path
+                      d="M23.189 14.02c.314-2.096-1.283-3.223-3.465-3.975l.708-2.84-1.728-.43-.69 2.765c-.454-.114-.92-.22-1.385-.326l.695-2.783L15.596 6l-.708 2.839c-.376-.086-.745-.17-1.104-.26l.002-.009-2.384-.595-.46 1.846s1.283.294 1.256.312c.7.175.826.638.805 1.006l-.806 3.235c.048.012.11.03.18.057l-.183-.045-1.13 4.532c-.086.212-.303.531-.793.41.018.025-1.256-.313-1.256-.313l-.858 1.978 2.25.56c.418.105.828.215 1.231.318l-.715 2.872 1.727.43.708-2.84c.472.127.93.245 1.378.357l-.706 2.828 1.728.43.715-2.866c2.948.558 5.164.333 6.097-2.333.752-2.146-.037-3.385-1.588-4.192 1.13-.26 1.98-1.003 2.207-2.538zm-3.95 5.538c-.533 2.147-4.148.986-5.32.695l.95-3.805c1.172.293 4.929.872 4.37 3.11zm.535-5.569c-.487 1.953-3.495.96-4.47.717l.86-3.45c.975.243 4.118.696 3.61 2.733z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </div>
+                <h3 style="margin: 0">BTC/USDT</h3>
+              </div>
+              <span class="badge badge-success">+2.5%</span>
+            </div>
+            <p style="font-size: 1.5rem; font-weight: bold">$42,150.00</p>
+            <p style="color: var(--text-light)">Vol: $28.5B</p>
+          </div>
+          <div class="dashboard-card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-blue-600"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z"
+                      fill="#627EEA"
+                    />
+                    <path
+                      d="M16.498 4v8.87l7.497 3.35L16.498 4z"
+                      fill="#fff"
+                      fillOpacity=".602"
+                    />
+                    <path d="M16.498 4L9 16.22l7.498-3.35V4z" fill="#fff" />
+                    <path
+                      d="M16.498 21.968v6.027L24 17.616l-7.502 4.352z"
+                      fill="#fff"
+                      fillOpacity=".602"
+                    />
+                    <path
+                      d="M16.498 27.995v-6.027L9 17.616l7.498 10.379z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M16.498 20.573l7.497-4.353-7.497-3.348v7.701z"
+                      fill="#fff"
+                      fillOpacity=".2"
+                    />
+                    <path
+                      d="M9 16.22l7.498 4.353v-7.701L9 16.22z"
+                      fill="#fff"
+                      fillOpacity=".602"
+                    />
+                  </svg>
+                </div>
+                <h3 style="margin: 0">ETH/USDT</h3>
+              </div>
+              <span class="badge badge-success">+3.2%</span>
+            </div>
+            <p style="font-size: 1.5rem; font-weight: bold">$2,850.00</p>
+            <p style="color: var(--text-light)">Vol: $15.2B</p>
+          </div>
+          <div class="dashboard-card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-purple-600"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z"
+                      fill="#9945FF"
+                    />
+                    <path
+                      d="M9.023 11.527l3.486-1.984a.35.35 0 01.345 0l7.546 4.3c.107.06.107.214 0 .275l-3.486 1.984a.35.35 0 01-.345 0l-7.546-4.3c-.107-.061-.107-.214 0-.275zm11.377 4.716l-7.546-4.3a.35.35 0 00-.345 0l-3.486 1.984c-.107.061-.107.214 0 .275l7.546 4.3a.35.35 0 00.345 0l3.486-1.984c.107-.06.107-.214 0-.275z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </div>
+                <h3 style="margin: 0">SOL/USDT</h3>
+              </div>
+              <span class="badge badge-success">+5.8%</span>
+            </div>
+            <p style="font-size: 1.5rem; font-weight: bold">$98.50</p>
+            <p style="color: var(--text-light)">Vol: $2.8B</p>
+          </div>
+          <div class="dashboard-card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-blue-600"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z"
+                      fill="#0033AD"
+                    />
+                    <path
+                      d="M16.286 5.36l-1.042 3.2a.176.176 0 00.226.226l2.947-.906a.353.353 0 01.453.453l-.905 2.947a.176.176 0 00.226.226l3.2-1.042a.353.353 0 01.453.453l-5.334 16.378a.353.353 0 01-.673-.22l.905-2.947a.176.176 0 00-.226-.226l-2.947.906a.353.353 0 01-.453-.453l.905-2.947a.176.176 0 00-.226-.226l-3.2 1.042a.353.353 0 01-.453-.453l5.334-16.378a.353.353 0 01.673.22l-.905 2.947a.176.176 0 00.226.226l2.947-.906a.353.353 0 01.453.453l-.905 2.947a.176.176 0 00.226.226z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </div>
+                <h3 style="margin: 0">ADA/USDT</h3>
+              </div>
+              <span class="badge badge-error">-1.2%</span>
+            </div>
+            <p style="font-size: 1.5rem; font-weight: bold">$0.45</p>
+            <p style="color: var(--text-light)">Vol: $980M</p>
+          </div>
+          <div class="dashboard-card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-pink-600"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z"
+                      fill="#E6007A"
+                    />
+                    <path
+                      d="M16.684 7c-.437 0-.874.066-1.293.197a3.873 3.873 0 00-1.134.568 4.062 4.062 0 00-.914.89 4.143 4.143 0 00-.633 1.156 4.192 4.192 0 00-.231 1.367c0 .478.077.947.231 1.386.154.44.377.845.663 1.194.286.35.626.64 1.004.853.379.214.79.342 1.207.342.437 0 .874-.066 1.293-.197a3.873 3.873 0 001.134-.568c.34-.245.644-.548.914-.89.27-.343.48-.728.633-1.137.154-.41.231-.854.231-1.367 0-.478-.077-.947-.231-1.386a3.993 3.993 0 00-.663-1.194 4.062 4.062 0 00-1.004-.853A4.023 4.023 0 0016.684 7zm-3.368 9c-.437 0-.874.066-1.293.197a3.873 3.873 0 00-1.134.568 4.062 4.062 0 00-.914.89 4.143 4.143 0 00-.633 1.156 4.192 4.192 0 00-.231 1.367c0 .478.077.947.231 1.386.154.44.377.845.663 1.194.286.35.626.64 1.004.853.379.214.79.342 1.207.342.437 0 .874-.066 1.293-.197a3.873 3.873 0 001.134-.568c.34-.245.644-.548.914-.89.27-.343.48-.728.633-1.137.154-.41.231-.854.231-1.367 0-.478-.077-.947-.231-1.386a3.993 3.993 0 00-.663-1.194 4.062 4.062 0 00-1.004-.853A4.023 4.023 0 0013.316 16zm6.736 0c-.437 0-.874.066-1.293.197a3.873 3.873 0 00-1.134.568 4.062 4.062 0 00-.914.89 4.143 4.143 0 00-.633 1.156 4.192 4.192 0 00-.231 1.367c0 .478.077.947.231 1.386.154.44.377.845.663 1.194.286.35.626.64 1.004.853.379.214.79.342 1.207.342.437 0 .874-.066 1.293-.197a3.873 3.873 0 001.134-.568c.34-.245.644-.548.914-.89.27-.343.48-.728.633-1.137.154-.41.231-.854.231-1.367 0-.478-.077-.947-.231-1.386a3.993 3.993 0 00-.663-1.194 4.062 4.062 0 00-1.004-.853A4.023 4.023 0 0020.052 16z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </div>
+                <h3 style="margin: 0">DOT/USDT</h3>
+              </div>
+              <span class="badge badge-success">+1.5%</span>
+            </div>
+            <p style="font-size: 1.5rem; font-weight: bold">$6.80</p>
+            <p style="color: var(--text-light)">Vol: $750M</p>
+          </div>
+        </div>
+
+        <!-- Grid de Análisis -->
+        <div
+          class="dashboard-grid charts"
+          style="grid-template-columns: repeat(4, 1fr); gap: 1.5rem"
+        >
+          <!-- Análisis Técnico -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>Análisis Técnico</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>BTC/USDT</option>
+                <option>ETH/USDT</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="technicalAnalysisChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Indicadores RSI -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>RSI por Activo</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>24h</option>
+                <option>7d</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="rsiChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Volatilidad -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>Volatilidad</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>7d</option>
+                <option>30d</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="volatilityChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Correlación -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>Correlación entre Activos</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>30d</option>
+                <option>90d</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="correlationChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Distribución de Activos -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>Distribución de Activos</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>Por Valor</option>
+                <option>Por Cantidad</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="assetsDistributionChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Volumen de Trading -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>Volumen de Trading</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>24h</option>
+                <option>7d</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="tradingVolumeChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Análisis de Sentimiento -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>Análisis de Sentimiento</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>Global</option>
+                <option>Por Activo</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="sentimentChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Rendimiento por Estrategia -->
+          <div class="dashboard-card">
+            <div class="chart-header">
+              <h3>Rendimiento por Estrategia</h3>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>30d</option>
+                <option>90d</option>
+              </select>
+            </div>
+            <div style="height: 300px; position: relative">
+              <canvas id="strategyPerformanceChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráfico Principal -->
+        <div class="chart-container large">
+          <div class="chart-header">
+            <h2 class="chart-title">Rendimiento del Portfolio</h2>
+            <select
+              class="dashboard-button"
+              style="background: white; color: var(--text)"
+            >
+              <option>Últimos 7 días</option>
+              <option>Último mes</option>
+              <option>Último año</option>
+            </select>
+          </div>
+          <div style="height: 400px; position: relative">
+            <canvas id="performanceChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Tabla de Operaciones -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <h2 class="chart-title">Operaciones Recientes</h2>
+          </div>
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Par</th>
+                <th>Tipo</th>
+                <th>Entrada</th>
+                <th>Salida</th>
+                <th>Beneficio</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BTC/USDT</td>
+                <td>Long</td>
+                <td>$42,150.00</td>
+                <td>$43,250.00</td>
+                <td style="color: var(--success)">+2.61%</td>
+                <td><span class="badge badge-success">Completado</span></td>
+              </tr>
+              <tr>
+                <td>ETH/USDT</td>
+                <td>Short</td>
+                <td>$2,850.00</td>
+                <td>-</td>
+                <td style="color: var(--warning)">-0.52%</td>
+                <td><span class="badge badge-warning">En curso</span></td>
+              </tr>
+              <tr>
+                <td>SOL/USDT</td>
+                <td>Long</td>
+                <td>$98.50</td>
+                <td>$102.30</td>
+                <td style="color: var(--success)">+3.86%</td>
+                <td><span class="badge badge-success">Completado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Configuración común
+      Chart.defaults.font.family = "'Inter', sans-serif";
+      Chart.defaults.color = "#64748b";
+      Chart.defaults.plugins.legend.position = "top";
+
+      // Función para crear gradientes
+      function createGradient(ctx, color) {
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, color + "0.2)");
+        gradient.addColorStop(1, color + "0)");
+        return gradient;
+      }
+
+      // Análisis Técnico
+      const technicalCtx = document
+        .getElementById("technicalAnalysisChart")
+        .getContext("2d");
+      new Chart(technicalCtx, {
+        type: "line",
+        data: {
+          labels: ["1", "5", "10", "15", "20", "25", "30"],
+          datasets: [
+            {
+              label: "EMA 20",
+              data: [42100, 42300, 42500, 42700, 42900, 43100, 43300],
+              borderColor: "#10B981",
+              tension: 0.4,
+            },
+            {
+              label: "SMA 50",
+              data: [41800, 42000, 42200, 42400, 42600, 42800, 43000],
+              borderColor: "#3B82F6",
+              tension: 0.4,
+            },
+            {
+              label: "MACD",
+              data: [41500, 41700, 41900, 42100, 42300, 42500, 42700],
+              borderColor: "#8B5CF6",
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+            },
+          },
+        },
+      });
+
+      // RSI por Activo
+      const rsiCtx = document.getElementById("rsiChart").getContext("2d");
+      new Chart(rsiCtx, {
+        type: "line",
+        data: {
+          labels: ["1", "5", "10", "15", "20", "25", "30"],
+          datasets: [
+            {
+              label: "BTC",
+              data: [65, 68, 72, 70, 75, 73, 78],
+              borderColor: "#F7931A",
+              tension: 0.4,
+            },
+            {
+              label: "ETH",
+              data: [55, 58, 62, 60, 65, 63, 68],
+              borderColor: "#627EEA",
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "top",
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              min: 0,
+            },
+          },
+        },
+      });
+
+      // Volatilidad
+      const volatilityCtx = document
+        .getElementById("volatilityChart")
+        .getContext("2d");
+      new Chart(volatilityCtx, {
+        type: "bar",
+        data: {
+          labels: ["BTC", "ETH", "SOL", "ADA", "DOT"],
+          datasets: [
+            {
+              label: "Volatilidad %",
+              data: [4.2, 5.8, 7.5, 6.2, 5.5],
+              backgroundColor: [
+                "rgba(247, 147, 26, 0.5)",
+                "rgba(98, 126, 234, 0.5)",
+                "rgba(153, 69, 255, 0.5)",
+                "rgba(0, 51, 173, 0.5)",
+                "rgba(230, 0, 122, 0.5)",
+              ],
+              borderColor: [
+                "#F7931A",
+                "#627EEA",
+                "#9945FF",
+                "#0033AD",
+                "#E6007A",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // Correlación
+      const correlationCtx = document
+        .getElementById("correlationChart")
+        .getContext("2d");
+      new Chart(correlationCtx, {
+        type: "radar",
+        data: {
+          labels: ["BTC", "ETH", "SOL", "ADA", "DOT"],
+          datasets: [
+            {
+              label: "Correlación",
+              data: [1, 0.8, 0.6, 0.5, 0.4],
+              backgroundColor: "rgba(79, 70, 229, 0.2)",
+              borderColor: "rgba(79, 70, 229, 1)",
+              pointBackgroundColor: "rgba(79, 70, 229, 1)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 1,
+            },
+          },
+        },
+      });
+
+      // Distribución de Activos
+      const distributionCtx = document
+        .getElementById("assetsDistributionChart")
+        .getContext("2d");
+      new Chart(distributionCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["BTC", "ETH", "SOL", "ADA", "DOT", "Otros"],
+          datasets: [
+            {
+              data: [40, 25, 15, 10, 5, 5],
+              backgroundColor: [
+                "#F7931A",
+                "#627EEA",
+                "#9945FF",
+                "#0033AD",
+                "#E6007A",
+                "#64748B",
+              ],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "right",
+            },
+          },
+        },
+      });
+
+      // Volumen de Trading
+      const volumeCtx = document
+        .getElementById("tradingVolumeChart")
+        .getContext("2d");
+      new Chart(volumeCtx, {
+        type: "bar",
+        data: {
+          labels: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+          datasets: [
+            {
+              label: "Volumen (USD)",
+              data: [
+                2800000, 3200000, 2900000, 3500000, 3100000, 2700000, 3000000,
+              ],
+              backgroundColor: "rgba(79, 70, 229, 0.5)",
+              borderColor: "rgba(79, 70, 229, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+
+      // Análisis de Sentimiento
+      const sentimentCtx = document
+        .getElementById("sentimentChart")
+        .getContext("2d");
+      new Chart(sentimentCtx, {
+        type: "line",
+        data: {
+          labels: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+          datasets: [
+            {
+              label: "Bullish",
+              data: [65, 70, 68, 75, 72, 78, 80],
+              borderColor: "#10B981",
+              tension: 0.4,
+            },
+            {
+              label: "Bearish",
+              data: [35, 30, 32, 25, 28, 22, 20],
+              borderColor: "#EF4444",
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+            },
+          },
+        },
+      });
+
+      // Rendimiento por Estrategia
+      const strategyCtx = document
+        .getElementById("strategyPerformanceChart")
+        .getContext("2d");
+      new Chart(strategyCtx, {
+        type: "radar",
+        data: {
+          labels: ["Tendencia", "Scalping", "Grid", "DCA", "Arbitraje", "ML"],
+          datasets: [
+            {
+              label: "Rendimiento %",
+              data: [85, 92, 78, 88, 75, 95],
+              backgroundColor: "rgba(79, 70, 229, 0.2)",
+              borderColor: "rgba(79, 70, 229, 1)",
+              pointBackgroundColor: "rgba(79, 70, 229, 1)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 100,
+            },
+          },
+        },
+      });
+
+      // Gráfico de Rendimiento del Portfolio
+      const performanceCtx = document
+        .getElementById("performanceChart")
+        .getContext("2d");
+      const performanceGradient = performanceCtx.createLinearGradient(
+        0,
+        0,
+        0,
+        400
+      );
+      performanceGradient.addColorStop(0, "rgba(79, 70, 229, 0.1)");
+      performanceGradient.addColorStop(1, "rgba(79, 70, 229, 0)");
+
+      new Chart(performanceCtx, {
+        type: "line",
+        data: {
+          labels: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+          datasets: [
+            {
+              label: "Balance del Portfolio",
+              data: [22000, 23400, 23800, 24200, 24800, 25200, 25438],
+              borderColor: "#4f46e5",
+              backgroundColor: performanceGradient,
+              tension: 0.4,
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: {
+                display: true,
+                drawBorder: false,
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

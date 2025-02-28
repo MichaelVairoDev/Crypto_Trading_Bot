@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading - CryptoBot</title>
+    <link rel="stylesheet" href="assets/css/dashboard-common.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-logo">
+          <i
+            class="bx bx-bot"
+            style="font-size: 2rem; color: var(--primary)"
+          ></i>
+          <h2>CryptoBot</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <i class="bx bxs-dashboard"></i>
+            Dashboard
+          </a>
+          <a href="trading.html" class="nav-item active">
+            <i class="bx bx-line-chart"></i>
+            Trading
+          </a>
+          <a href="analytics.html" class="nav-item">
+            <i class="bx bx-bar-chart-alt-2"></i>
+            Analytics
+          </a>
+          <a href="settings.html" class="nav-item">
+            <i class="bx bx-cog"></i>
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Contenido Principal -->
+      <main class="dashboard-main">
+        <header class="dashboard-header">
+          <h1 class="page-title">Trading</h1>
+          <div>
+            <button class="dashboard-button" style="margin-right: 1rem">
+              <i class="bx bx-plus"></i>
+              Nueva Orden
+            </button>
+            <button class="dashboard-button" style="background: var(--error)">
+              <i class="bx bx-stop-circle"></i>
+              Detener Bot
+            </button>
+          </div>
+        </header>
+
+        <!-- Grid de Estadísticas -->
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>Operaciones Hoy</h3>
+            <p style="font-size: 2rem; font-weight: bold">12</p>
+            <p style="color: var(--success)">+4 vs ayer</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Beneficio Diario</h3>
+            <p
+              style="font-size: 2rem; font-weight: bold; color: var(--success)"
+            >
+              +$342.50
+            </p>
+            <p style="color: var(--success)">+2.8% hoy</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Win Rate</h3>
+            <p
+              style="font-size: 2rem; font-weight: bold; color: var(--primary)"
+            >
+              78%
+            </p>
+            <p style="color: var(--text-light)">9/12 operaciones exitosas</p>
+          </div>
+        </div>
+
+        <!-- Gráfico de Trading -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <h2 class="chart-title">BTC/USDT</h2>
+            <div>
+              <select
+                class="dashboard-button"
+                style="
+                  background: white;
+                  color: var(--text);
+                  margin-right: 1rem;
+                "
+              >
+                <option>BTC/USDT</option>
+                <option>ETH/USDT</option>
+                <option>SOL/USDT</option>
+              </select>
+              <select
+                class="dashboard-button"
+                style="background: white; color: var(--text)"
+              >
+                <option>1H</option>
+                <option>4H</option>
+                <option>1D</option>
+              </select>
+            </div>
+          </div>
+          <canvas id="tradingChart"></canvas>
+        </div>
+
+        <!-- Órdenes Activas -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <h2 class="chart-title">Órdenes Activas</h2>
+            <select
+              class="dashboard-button"
+              style="background: white; color: var(--text)"
+            >
+              <option>Todas</option>
+              <option>Long</option>
+              <option>Short</option>
+            </select>
+          </div>
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Par</th>
+                <th>Tipo</th>
+                <th>Entrada</th>
+                <th>Stop Loss</th>
+                <th>Take Profit</th>
+                <th>P/L</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BTC/USDT</td>
+                <td><span class="badge badge-success">Long</span></td>
+                <td>$42,150.00</td>
+                <td>$41,500.00</td>
+                <td>$43,200.00</td>
+                <td style="color: var(--success)">+$245.32</td>
+                <td>
+                  <button
+                    class="dashboard-button"
+                    style="padding: 0.5rem; background: var(--error)"
+                  >
+                    <i class="bx bx-x"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>ETH/USDT</td>
+                <td><span class="badge badge-error">Short</span></td>
+                <td>$2,850.00</td>
+                <td>$2,920.00</td>
+                <td>$2,750.00</td>
+                <td style="color: var(--error)">-$32.15</td>
+                <td>
+                  <button
+                    class="dashboard-button"
+                    style="padding: 0.5rem; background: var(--error)"
+                  >
+                    <i class="bx bx-x"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Configuración del gráfico de trading
+      const ctx = document.getElementById("tradingChart").getContext("2d");
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, "rgba(79, 70, 229, 0.1)");
+      gradient.addColorStop(1, "rgba(79, 70, 229, 0)");
+
+      // Generar datos aleatorios para el gráfico
+      const generateData = () => {
+        const data = [];
+        let value = 42000;
+        for (let i = 0; i < 24; i++) {
+          value += Math.random() * 200 - 100;
+          data.push(value);
+        }
+        return data;
+      };
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: Array.from({ length: 24 }, (_, i) => `${i}:00`),
+          datasets: [
+            {
+              label: "BTC/USDT",
+              data: generateData(),
+              borderColor: "#4f46e5",
+              backgroundColor: gradient,
+              tension: 0.4,
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: {
+                display: true,
+                drawBorder: false,
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

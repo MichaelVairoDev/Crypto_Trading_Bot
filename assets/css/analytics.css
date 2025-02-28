@@ -1,0 +1,313 @@
+:root {
+  --primary-color: #2962ff;
+  --secondary-color: #0039cb;
+  --background-color: #f5f6fa;
+  --card-background: #ffffff;
+  --text-color: #2c3e50;
+  --success-color: #4caf50;
+  --danger-color: #f44336;
+  --warning-color: #ff9800;
+  --sidebar-width: 250px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--card-background);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  margin-bottom: 10px;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.nav-links li.active a {
+  background: var(--primary-color);
+  color: white;
+}
+
+.nav-links a:hover {
+  background: rgba(41, 98, 255, 0.1);
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.time-filter {
+  display: flex;
+  gap: 10px;
+}
+
+.time-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.time-btn:hover {
+  background: rgba(41, 98, 255, 0.1);
+}
+
+.time-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.chart-card,
+.metrics-card,
+.trades-distribution-card,
+.ml-metrics-card,
+.recent-trades-card,
+.prediction-accuracy-card {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card,
+.trades-distribution-card,
+.recent-trades-card,
+.prediction-accuracy-card {
+  grid-column: span 2;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.metric-label {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.metric-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.metric-value.positive {
+  color: var(--success-color);
+}
+
+.metric-value.negative {
+  color: var(--danger-color);
+}
+
+.ml-metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ml-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.trades-table-container {
+  overflow-x: auto;
+}
+
+.trades-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.trades-table th,
+.trades-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.trades-table th {
+  font-weight: 600;
+  color: var(--text-color);
+  background: #f8f9fa;
+}
+
+.trades-table tr:hover {
+  background: #f8f9fa;
+}
+
+canvas {
+  width: 100% !important;
+  height: 300px !important;
+  margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card,
+  .trades-distribution-card,
+  .recent-trades-card,
+  .prediction-accuracy-card {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+    padding: 10px;
+  }
+
+  .logo h2,
+  .nav-links a span {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 70px;
+  }
+
+  .nav-links a {
+    justify-content: center;
+    padding: 15px;
+  }
+
+  .nav-links a i {
+    margin: 0;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .time-filter {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .time-filter::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .time-filter::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .time-filter::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
