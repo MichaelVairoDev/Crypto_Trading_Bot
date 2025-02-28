@@ -62,7 +62,7 @@ _Panel de configuración y preferencias_
 1. **Clonar el repositorio**
 
 ```bash
-git clone https://github.com/yourusername/Crypto_Trading_Bot.git
+git clone https://github.com/MichaelVairoDev/Crypto_Trading_Bot.git
 cd Crypto_Trading_Bot
 ```
 
